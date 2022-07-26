@@ -2,18 +2,25 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const magicItemSchema = new Schema({
     name: {
         type: String,
         required: true,
     },
-    author: {
+    type: {
         type: String,
         required: true,
+    },
+    rarity: {
+        type: String,
+        required: true
     },
     description: {
         type: String,
         required: true,
+    },
+    effects: {
+        type: String,
     },
     price: {
         type: Number,
@@ -21,7 +28,11 @@ const bookSchema = new Schema({
     },
     available: {
         type: Boolean,
+    },
+    image: {
+        type: String,
+        required: true
     }
 });
 
-module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('MagicItem', magicItemSchema);
