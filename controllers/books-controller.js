@@ -43,6 +43,10 @@ const getById = async (req, res, next) => {
     } catch (err) {
         console.log(err);
     }
+    if (!book) {
+        return res.status(404).json({ message: 'No book found...' })
+    }
+    return res.status(200).json({ book })
 }
 
 exports.getAllBooks = getAllBooks;
